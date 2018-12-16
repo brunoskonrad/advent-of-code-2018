@@ -22,5 +22,6 @@ defmodule AdventOfCode.CLI do
 
   defp execute_command("1"), do: {:ok, AdventOfCode.Puzzle1.Main.execute()}
   defp execute_command("2"), do: {:ok, AdventOfCode.Puzzle2.Main.execute()}
+  defp execute_command("3"), do: {:ok, AdventOfCode.Puzzle3.Main.execute()}
   defp execute_command(_), do: {:error, "Puzzle not implemented"}
 end
