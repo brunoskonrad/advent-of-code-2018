@@ -6,9 +6,10 @@ defmodule AdventOfCode.CLI do
   def main(args) do
     [puzzle] = args
 
-    puzzle
-    |> execute_command
-    |> success_message(puzzle)
+    case execute_command(puzzle) do
+      {:ok, result} -> success_message(result, puzzle)
+      {:error, message} -> error_message(message)
+    end
   end
 
   defp success_message(output, puzzle) do
@@ -19,9 +20,7 @@ defmodule AdventOfCode.CLI do
     IO.puts("🙅‍♀️ #{message}")
   end
 
-  defp execute_command("1") do
-    AdventOfCode.Puzzle1.Main.execute()
-  end
-
-  defp execute_command(_), do: error_message("Puzzle not implemented")
+  defp execute_command("1"), do: {:ok, AdventOfCode.Puzzle1.Main.execute()}
+  defp execute_command("2"), do: {:ok, AdventOfCode.Puzzle2.Main.execute()}
+  defp execute_command(_), do: {:error, "Puzzle not implemented"}
 end

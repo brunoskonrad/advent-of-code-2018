@@ -1,11 +1,11 @@
-defmodule AdventOfCode.Puzzle1.Main do
-  alias AdventOfCode.Puzzle1.Calibration
+defmodule AdventOfCode.Puzzle2.Main do
+  alias AdventOfCode.Puzzle2.Frequency
   alias AdventOfCode.Convertor.NumericList
 
   def execute() do
     read_file()
     |> NumericList.convert()
-    |> Calibration.calculate_calibration(0)
+    |> Frequency.frequency()
   end
 
   defp read_file() do

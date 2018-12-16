@@ -1,5 +1,5 @@
-defmodule AdventOfCode.Puzzle1.TransformInput do
-  def transform(input) do
+defmodule AdventOfCode.Convertor.NumericList do
+  def convert(input) do
     input
     |> String.split("\n", trim: true)
     |> Enum.map(fn calibration ->
