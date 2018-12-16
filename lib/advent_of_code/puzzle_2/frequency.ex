@@ -4,6 +4,7 @@ defmodule AdventOfCode.Puzzle2.Frequency do
   end
 
   def handle_return(_list, result) when is_number(result), do: result
+
   def handle_return(list, result) do
     new_result = perform_frequency(list, result)
 
@@ -15,8 +16,9 @@ defmodule AdventOfCode.Puzzle2.Frequency do
   end
 
   defp perform_frequency([], saved), do: saved
+
   defp perform_frequency(list, saved) do
-    [head|tail] = list
+    [head | tail] = list
     last = get_last_saved(saved)
     new_frequency = head + last
 
